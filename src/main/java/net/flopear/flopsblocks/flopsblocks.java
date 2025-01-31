@@ -1,5 +1,7 @@
 package net.flopear.flopsblocks;
 
+import net.flopear.flopsblocks.block.ModBlocks;
+import net.flopear.flopsblocks.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -93,6 +95,7 @@ public class flopsblocks
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
+
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         // Some common setup code
@@ -131,6 +134,13 @@ public class flopsblocks
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        }
+        public static void buildContents(BuildCreativeModeTabContentsEvent event)
+        {
+            if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+                event.accept(ModItems.Sapphire.get());
+                event.accept(ModBlocks.FLOPS_FIRST_BLOCK.get());
+            }
         }
     }
 }
