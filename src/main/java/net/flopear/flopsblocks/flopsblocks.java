@@ -1,4 +1,4 @@
-package com.example.flopsblocks;
+package net.flopear.flopsblocks;
 
 import org.slf4j.Logger;
 
